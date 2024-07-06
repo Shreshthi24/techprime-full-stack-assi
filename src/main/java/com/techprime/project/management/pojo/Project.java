@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 @DynamicInsert
 @DynamicUpdate
 @Table(name = "projects")
-public class ProjectDetails {
+public class Project {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +30,39 @@ public class ProjectDetails {
 	    private String endDate;
 	    private String location;
 	 	private String status; 
+	 	
+	 	//chart
+	 	private long total;
+		private long closed;
+		
+		
+	    public Project(String department, long total, long closed) {
+			super();
+			this.department = department;
+			this.total = total;
+			this.closed = closed;
+		}
+
+		public long getTotal() {
+			return total;
+		}
+
+		public void setTotal(long total) {
+			this.total = total;
+		}
+
+		public long getClosed() {
+			return closed;
+		}
+
+		public void setClosed(long closed) {
+			this.closed = closed;
+		}
+
+	
 	    
 	    // Constructors, getters, and setters
-	    public ProjectDetails() {
+	    public Project() {
 	    }
 
 	    public Long getId() {
