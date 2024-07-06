@@ -82,4 +82,11 @@ public class ProjectController {
         return projectService.getDepartmentStats();
     }
     
+    //update status
+    @PutMapping("/{id}/status")
+    public ResponseEntity<Void> updateProjectStatus(@PathVariable Long id, @RequestBody Map<String, String> status) {
+        projectService.updateProjectStatus(id, status.get("status"));
+        return ResponseEntity.ok().build();
+    }
+    
 }

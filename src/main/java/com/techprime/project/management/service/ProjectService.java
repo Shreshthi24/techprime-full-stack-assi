@@ -82,5 +82,15 @@ public class ProjectService {
     //for chart
     public List<DepartmentStats> getDepartmentStats() {
         return projectRepo.getDepartmentStats();
-}
+    }
+    
+    //for status update
+    public void updateProjectStatus(Long id, String status) {
+        Optional<Project> projectOptional = projectRepo.findById(id);
+        if (projectOptional.isPresent()) {
+            Project project = projectOptional.get();
+            project.setStatus(status);
+            projectRepo.save(project);
+        }
+    }
 }

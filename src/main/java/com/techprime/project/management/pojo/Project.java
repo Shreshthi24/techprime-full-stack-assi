@@ -31,34 +31,7 @@ public class Project {
 	    private String location;
 	 	private String status; 
 	 	
-	 	//chart
-	 	private long total;
-		private long closed;
-		
-		
-	    public Project(String department, long total, long closed) {
-			super();
-			this.department = department;
-			this.total = total;
-			this.closed = closed;
-		}
-
-		public long getTotal() {
-			return total;
-		}
-
-		public void setTotal(long total) {
-			this.total = total;
-		}
-
-		public long getClosed() {
-			return closed;
-		}
-
-		public void setClosed(long closed) {
-			this.closed = closed;
-		}
-
+	 
 	
 	    
 	    // Constructors, getters, and setters
