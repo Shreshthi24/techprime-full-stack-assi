@@ -43,9 +43,9 @@ public class UserServiceImpl implements UserService {
 	            if (isPwdRight) {
 	                Optional<User> employee = loginRepo.findOneByEmailAndPassword(loginDao.getEmail(), encodedPassword);
 	                if (employee.isPresent()) {
-	                    return new LoginResponse("Login Success", true);
+	                    return new LoginResponse("Valid User", true);
 	                } else {
-	                    return new LoginResponse("Login Failed", false);
+	                    return new LoginResponse("Invalid User", false);
 	                }
 	            } else {
 	                return new LoginResponse("password Not Match", false);

@@ -31,8 +31,6 @@ public class Project {
 	    private String location;
 	 	private String status; 
 	 	
-	 
-	
 	    
 	    // Constructors, getters, and setters
 	    public Project() {

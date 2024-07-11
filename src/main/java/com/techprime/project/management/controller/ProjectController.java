@@ -1,7 +1,5 @@
 package com.techprime.project.management.controller;
 
-
-//import java.util.List;
 import java.util.*;
 import java.util.Optional;
 
@@ -29,7 +27,10 @@ public class ProjectController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/create")
     public Project createProject(@RequestBody Project project) {
-        return projectService.saveProject(project);
+    	return projectService.saveProject(project);
+//        return ResponseEntity.ok("“Status” : “True”,\r\n"
+//        		+ "“Message” : “New project added successfully”\r\n"
+//        		+ "");
     }
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
@@ -37,6 +38,8 @@ public class ProjectController {
         List<Project> projects = projectService.getAllProjects();
         return ResponseEntity.ok().body(projects);
     }
+    
+    
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
@@ -56,13 +59,6 @@ public class ProjectController {
     	projectService.deleteProject(id);
         return ResponseEntity.noContent().build();
     }
-    
-  /*  @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/count")
-    public ResponseEntity<List<Project>> getTotalProjects() {
-        List<Project> projects = projectService.getAllProjects();
-        return ResponseEntity.ok().body(projects);
-        }*/
    
     @GetMapping("/counters")
     public ResponseEntity<Map<String, Long>> getProjectCounts() {

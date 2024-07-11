@@ -30,12 +30,6 @@ public interface ProjectRepo extends JpaRepository<Project,Long>
     @Query("SELECT COUNT(p) FROM Project p WHERE p.status = 'Cancelled'")
     long countCancelledProjects();
     
-    // for chart
-  /* @Query("SELECT Project (p.department, COUNT(p), SUM(CASE WHEN p.status = 'Closed' THEN 1 ELSE 0 END)) " +
-         "FROM Project p GROUP BY p.department")
-     List<Project> getDepartmentStats();
-	*/
-
    @Query("SELECT new com.techprime.project.management.pojo.DepartmentStats(p.department, COUNT(p), SUM(CASE WHEN p.status = 'Closed' THEN 1 ELSE 0 END)) " +
            "FROM Project p GROUP BY p.department")
     List<DepartmentStats> getDepartmentStats();
